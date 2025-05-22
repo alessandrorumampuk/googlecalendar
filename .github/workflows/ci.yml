@@ -1,8 +1,8 @@
-name: Schedule Daily Event to Google Calendar
+name: Schedule Event Every 5 Minutes
 
 on:
   schedule:
-    - cron: '0 3 * * *' # 10:00 WIB (Waktu Indonesia Barat) == 03:00 UTC
+    - cron: '*/5 * * * *' # setiap 5 menit
   workflow_dispatch:
 
 jobs:
