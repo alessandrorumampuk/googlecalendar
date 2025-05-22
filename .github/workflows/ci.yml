@@ -1,0 +1,26 @@
+name: Schedule Daily Event to Google Calendar
+
+on:
+  schedule:
+    - cron: '0 3 * * *' # 10:00 WIB (Waktu Indonesia Barat) == 03:00 UTC
+  workflow_dispatch:
+
+jobs:
+  send-event:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: Install Dependencies
+        run: npm install node-fetch
+
+      - name: Run schedule script
+        env:
+          ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+        run: node schedule.js
