@@ -23,4 +23,4 @@ jobs:
       - name: Run schedule script
         env:
           ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
-        run: node schedule.js
+        run: node schedule.mjs
